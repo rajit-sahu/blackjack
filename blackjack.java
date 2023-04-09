@@ -13,7 +13,7 @@ public class Blackjack
         System.out.println("Rules");
         System.out.println("Blackjack is a card game where the goal is to have a hand value of 21 or as close to 21 as possible without going over.\n The game is played with a deck of 52 cards, and each card has a point value. \nThe player is dealt two cards and can choose to hit (take another card) or stand (keep their current hand). \nThe dealer also receives two cards, but one card is face down. The dealer must hit until they have a hand value of 17 or higher. \nIf the player's hand value is higher than the dealer's without going over 21, the player wins. \nIf the dealer's hand value is higher than the player's or the player goes over 21, the player loses. \nAces can be worth either 1 or 11 points, and face cards are worth 10 points each.");
         deck = new Deck();
-        dealer = new Dealer("Dealer", deck);
+        dealer = new Dealer(deck);
         scanner = new Scanner(System.in);
         leaderboard = new Leaderboard();
         System.out.println("What is your name? ");
@@ -25,7 +25,7 @@ public class Blackjack
         while(true) 
         {
             if(deck.getSize()<18)
-                deck = new Deck();
+                dealer = new Dealer();
             deck.shuffle();
             dealer.dealInitialCards(player);
             System.out.println("Dealer's hand: \n" + dealer.getHand().get(0) + ", [hidden]");
